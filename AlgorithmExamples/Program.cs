@@ -30,12 +30,15 @@ namespace AlgorithmExamples
             Console.WriteLine("---Flatten array---");
             var nestedArray = new[]
             {
-                new object[]{ new object[] { 4,5,6, new object[] { 6,7,8} } },
+                new object[] {new object[] {4, 5, 6, new object[] {6, 7, 8}}},
                 new object[] {2, 3},
                 new object[] {4, 5, 6}
             };
             Console.WriteLine(nestedArray);
             Console.WriteLine(FlattenArray(nestedArray));
+            
+            Console.WriteLine("---Multi recursive---");
+            Console.Write(MultiRecursive(3, 5));
         }
 
         private static Dictionary<string, int> RepeatedWordCounter(string text)
@@ -83,6 +86,12 @@ namespace AlgorithmExamples
             }
 
             return flattenedArray.ToArray();
+        }
+
+        private static double MultiRecursive(int a, int b)
+        {
+            if (a == 0 || b == 0) return 0;
+            return a + MultiRecursive(a, b - 1);
         }
     }
 }
